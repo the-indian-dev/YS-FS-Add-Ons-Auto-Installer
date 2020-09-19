@@ -6,8 +6,8 @@ import zipfile
 import itertools
 import threading
 import time
-
-'''
+from colorama import Fore, Back, Style
+'''from colorama import Fore, Back, Style
 Of course you need to have Python installed on your system to use this script.
 This script has been tested with Python 3.6.  It may run with Python 2.x, but I haven't tested.
 
@@ -327,13 +327,11 @@ def FixCapitalization(instDir,airListFName,gndListFName,scnListFName,dataFile):
 
 
 def animate_load():
-    for c in itertools.cycle(['|', '/', '-', '\\']):
-        if done:
-            break
-        sys.stdout.write('\rloading ' + c)
+    chars = "/—\|" 
+    for char in chars:
+        sys.stdout.write('\r'+'loading...'+char)
+        time.sleep(.1)
         sys.stdout.flush()
-        time.sleep(0.1)
-    sys.stdout.write('\rInstallation Done!     ')
 
 ################################################################################
 
