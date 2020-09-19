@@ -5,39 +5,34 @@ import subprocess
 import zipfile
 
 
+'''
+install_addon.py Version 20180803
 
-# install_addon.py Version 20180803
-#
-# This script covers majority of the add-on packages I downloaded from the web.
-# It assumes that the user data is under 'User' or 'user' sub-directory somewhere in the .zip file.
-# Windows doesn't care about capitalization, but Linux and macOS do.
-# Therefore, this script looks into .lst files and correct capitalization if the file name in the .lst file does not match
-# the capitalization of the actual file.
-#
-# Now at least I can test that the program does not crash or freeze if I install add-on packages in a batch!
-#
-# Of course you need to have Python installed on your system to use this script.
-# This script has been tested with Python 3.6.  It may run with Python 2.x, but I haven't tested.
-#
-# BSD License.  Free for re-distribution.  Please feel free to customize for your own add-on package and bundle with package.
-#
-# Usage:
-#    python install_addon.py package_zip_file.zip
-#     or
-#    python install_addon.py package_zip_file.zip install_directory
-#
-# If you do not specify the install_directory, the script installs to the default YSFLIGHT user directory (~/Documents/YSFLIGHT.COM/YSFLIGHT)
-#
-#
-#
-# By the way, I'm wondering why am I not writing this in C++ despite I am primarily a C++ programmer.  I love C++ much better than Python.
-# One reason could be C++ Standard Template Library does not have a function to get file listing from the file system.
-# Basic string operations, splitting, replacing etc. are not part of STL either, although it is very easy to write.
-# I wish C++ standard takes a file-system and basic string operations in the future into STL.
-# I can do the same if I link a set of my own class libraries, but then I cannot say easily "please feel free to customize and bundle."
-#
-# ... I think I soon need to write it in C++ anyway for iOS and Android.  But, for those purposes I'll use my own class libraries.
+This script covers majority of the add-on packages I downloaded from the web.
+It assumes that the user data is under 'User' or 'user' sub-directory somewhere in the .zip file.
+Windows doesn't care about capitalization, but Linux and macOS do.
+Therefore, this script looks into .lst files and correct capitalization if the file name in the .lst file does not match
+the capitalization of the actual file.
+Now at least I can test that the program does not crash or freeze if I install add-on packages in a batch!
 
+Of course you need to have Python installed on your system to use this script.
+This script has been tested with Python 3.6.  It may run with Python 2.x, but I haven't tested.
+
+BSD License.  Free for re-distribution.  Please feel free to customize for your own add-on package and bundle with package.
+
+Usage:
+    python install_addon.py package_zip_file.zip
+     or
+    python install_addon.py package_zip_file.zip install_directory
+
+ If you do not specify the install_directory, the script installs to the default YSFLIGHT user directory (~/Documents/YSFLIGHT.COM/YSFLIGHT)
+
+
+By the way, I'm wondering why am I not writing this in C++ despite I am primarily a C++ programmer.  I love C++ much better than Python. One reason could be C++ Standard Template Library does not have a function to get file listing from the file system.
+Basic string operations, splitting, replacing etc. are not part of STL either, although it is very easy to write.
+I wish C++ standard takes a file-system and basic string operations in the future into STL. I can do the same if I link a set of my own class libraries, but then I cannot say easily "please feel free to customize and bundle."
+... I think I soon need to write it in C++ anyway for iOS and Android.  But, for those purposes I'll use my own class libraries.
+'''
 
 
 
