@@ -1,4 +1,4 @@
-# install_addon.py
+# YS-FS-Add-Ons-Auto-Installer
 
 Python script for correctly install 3rd-party add-ons into YSFlight folder.
 
