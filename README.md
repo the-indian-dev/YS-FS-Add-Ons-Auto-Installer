@@ -2,8 +2,6 @@
 
 Python script for correctly install 3rd-party add-ons into YSFlight folder.
 
-- http://ysflight.in.coocan.jp/ysflight/ysflight/auto_test_scripts.zip
-
 > This script covers majority of the add-on packages I downloaded from the web. It assumes that the user data is under `User` or `user` sub-directory somewhere in the .zip file.
 > 
 > Windows doesn't care about capitalization, but Linux and macOS do.
