@@ -3,6 +3,9 @@ import os
 import shutil
 import subprocess
 import zipfile
+import itertools
+import threading
+import time
 
 '''
 Of course you need to have Python installed on your system to use this script.
@@ -323,13 +326,24 @@ def FixCapitalization(instDir,airListFName,gndListFName,scnListFName,dataFile):
 		FixCapitalizationPerListFile(fName,lowerToActual,True)
 
 
-
+def animate_load():
+    for c in itertools.cycle(['|', '/', '-', '\\']):
+        if done:
+            break
+        sys.stdout.write('\rloading ' + c)
+        sys.stdout.flush()
+        time.sleep(0.1)
+    sys.stdout.write('\rInstallation Done!     ')
 
 ################################################################################
 
 
 
 def main():
+	if platform.release() == 'Windows' :
+		os.system('cls')
+	else:
+		os.system('clear')
 	if len(sys.argv)<2:
 		print("Usage: python install_addon.py input_zip_file.zip install_destination_directory")
 		print("            or,")
@@ -344,8 +358,9 @@ def main():
 		instDir=os.path.join("~","Documents","YSFLIGHT.COM","YSFLIGHT")
 		instDir=os.path.expanduser(instDir)
 	InstallAddOn(sys.argv[1],instDir)
-	print("Installation done.")
-
+main = threading.Thread(name='process', target=main)
 
 if __name__=="__main__":
-	main()
+	main.start()
+	while the_process.isAlive():
+    		animate_load()
