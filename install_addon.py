@@ -8,7 +8,7 @@ import threading
 import time
 from colorama import Fore, Back, Style
 import platform
-'''from colorama import Fore, Back, Style
+'''
 Of course you need to have Python installed on your system to use this script.
 This script has been tested with Python 3.6.  It may run with Python 2.x, but I haven't tested.
 
@@ -325,15 +325,16 @@ def FixCapitalization(instDir,airListFName,gndListFName,scnListFName,dataFile):
 
 	for fName in scnListFName:
 		FixCapitalizationPerListFile(fName,lowerToActual,True)
-
-
-def animate_load():
-    chars = "/—\|" 
-    for char in chars:
-        sys.stdout.write('\r'+'loading...'+char)
-        time.sleep(.1)
-        sys.stdout.flush()
-
+# Colours :)
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 ################################################################################
 
 
@@ -357,9 +358,7 @@ def main():
 		instDir=os.path.join("~","Documents","YSFLIGHT.COM","YSFLIGHT")
 		instDir=os.path.expanduser(instDir)
 	InstallAddOn(sys.argv[1],instDir)
-main = threading.Thread(name='process', target=main)
+	print(f"{bcolors.OKGREEN}Installation Done!{bcolors.ENDC}")
 
 if __name__=="__main__":
-	main.start()
-	while main.isAlive():
-    		animate_load()
+	main()
