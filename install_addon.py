@@ -7,6 +7,7 @@ import itertools
 import threading
 import time
 from colorama import Fore, Back, Style
+import platform
 '''from colorama import Fore, Back, Style
 Of course you need to have Python installed on your system to use this script.
 This script has been tested with Python 3.6.  It may run with Python 2.x, but I haven't tested.
@@ -360,5 +361,5 @@ main = threading.Thread(name='process', target=main)
 
 if __name__=="__main__":
 	main.start()
-	while the_process.isAlive():
+	while main.isAlive():
     		animate_load()
