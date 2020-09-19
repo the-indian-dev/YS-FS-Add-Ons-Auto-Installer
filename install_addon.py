@@ -6,7 +6,6 @@ import zipfile
 import itertools
 import threading
 import time
-from colorama import Fore, Back, Style
 import platform
 '''
 Of course you need to have Python installed on your system to use this script.
@@ -153,7 +152,7 @@ def InstallAddOn(zipFName,instDir):
 	print(lstFile)
 
 	if []==userDir:
-		print("Cannot find a user directory.  Aborting installation.")
+		print(f"{bcolors.FAIL}ERROR : Cannot Find User Directory{bcolors.ENDC}")
 		return
 
 	dataFile=ForceCopyTree(userDir[0],instDir,userDir[1])
@@ -359,6 +358,10 @@ def main():
 		instDir=os.path.expanduser(instDir)
 	InstallAddOn(sys.argv[1],instDir)
 	print(f"{bcolors.OKGREEN}Installation Done!{bcolors.ENDC}")
+	print(f"{bcolors.OKBLUE}Enjoy :){bcolors.ENDC}")
 
 if __name__=="__main__":
-	main()
+	try :
+		main()
+	except :
+		print(f"{bcolors.FAIL}Installation Failed :( {bcolors.ENDC}")
